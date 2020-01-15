@@ -1,4 +1,5 @@
 import { AUTH_USER } from "./types";
+import axios from "axios";
 
 function someFunction(email, password) {
     return {
@@ -13,6 +14,10 @@ function someFunction(email, password) {
 export const signup = ({ email, password }) => {
 
     return dispatch => {
+        axios.post("https://reqres.in/api/register", {
+            email,
+            password
+        });
         dispatch(someFunction(email, password));
     }
 };
